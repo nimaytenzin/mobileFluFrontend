@@ -1,33 +1,44 @@
 
 <div class="main">
         <div style="align-items: center; justify-content: center;">
-            <mat-form-field appearance="fill" color= "primary">
-                <mat-label>Doctor's Name</mat-label>
-                <input matInput class="fullwidth">
-            </mat-form-field>
-            <br>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Doctor's Contact Number</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <br>
+            <form [formGroup]="clinicDetialsForm">
+                 
+                <mat-form-field appearance="fill" color= "primary">
+                    <mat-label>Doctor's Name</mat-label>
+                    <input matInput type="text" class="fullwidth" name="doctorsName" formControlName="doctorsNameControl" required>
+                </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Vehicle Number</mat-label>
-                <input matInput>
-            </mat-form-field>
+                <mat-form-field appearance="fill" color= "primary">
+                    <mat-label>Doctor's Contact Number</mat-label>
+                    <input matInput type="number" class="fullwidth" name="doctorsContact" formControlName="doctorsContactControl" required>
+                </mat-form-field>
+        
+                
+                <mat-form-field appearance="fill" color= "primary">
+                    <mat-label>Vehicle Number</mat-label>
+                    <input matInput type="text" class="fullwidth" name="vehicleNumber" formControlName="vehicleNumberControl" required>
+                </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Driver's Number</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <br>
-            <mat-form-field appearance="fill">
-                <mat-label>Enter Zones</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <br>
+                <mat-form-field appearance="fill" color= "primary">
+                    <mat-label>Drivers Name</mat-label>
+                    <input matInput type="text" class="fullwidth" name="driverName" formControlName="driverNameControl" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" color= "primary">
+                    <mat-label>Drivers Contact</mat-label>
+                    <input matInput type="number" class="fullwidth" name="driversContact" formControlName="driversContactControl" required>
+                </mat-form-field>
+        
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter Zones</mat-label>
+                    <input matInput type="text" class="fullwidth" name="zones" formControlName="zonesControl" required>
+                </mat-form-field> 
+                
+                
+
+               </form>
+            
         </div>
 
         <div>
@@ -59,3 +70,8 @@
 </div>
 
 
+
+
+
+       
+  

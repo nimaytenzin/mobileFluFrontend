@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import { SocketioService } from '../socketio.service';
 
 @Component({
   selector: 'app-public-interface',
@@ -27,7 +28,9 @@ export class PublicInterfaceComponent implements OnInit {
   
 
 
-  constructor() { }
+  constructor(
+    private socketio:SocketioService
+  ) { }
 
   ngOnInit() {
     this.renderMap();
@@ -38,12 +41,20 @@ export class PublicInterfaceComponent implements OnInit {
     this.drivername = "Kado";
     this.driverContact = 172655845;
 
+    this.getData()
+  }
 
+
+  getData(){
+    this.socketio.socket.on('fluClinicDetials', (data) => {
+      console.log(data)
+      var maker1 = L.marker([data.latitude, data.longitude])
+      maker1.addTo(this.map)
+    })
   }
 
   renderMap(){
   
-   
     this.map = L.map('map').setView([27.4712,89.64191], 13);
     // const googleSateliteMap = L.tileLayer(this.satelliteTileUrl);
     // googleSateliteMap.addTo(this.map)
@@ -58,17 +69,20 @@ export class PublicInterfaceComponent implements OnInit {
       iconSize: [30, 30]
     });
 
-
-
-    var marker = L.marker([27.467753, 89.641527], {icon: iconDefault});
-    marker.addTo(this.map).on('click', (e) => {
+    this.socketio.socket.on('fluClinicDetials', (data) => {
+      
+      var marker = L.marker([data.latitude, data.longitude], {icon: iconDefault});
+      marker.addTo(this.map).on('click', (e) => {
     
       if(this.showSideNav === true){
         this.showSideNav = false;
       } else{
         this.showSideNav = true
       }   
-  });
+    })
+    })
+
+    
   }
 
   getMyLocation() {
