@@ -1,0 +1,61 @@
+
+<div class="main">
+        <div style="align-items: center; justify-content: center;">
+            <mat-form-field appearance="fill" color= "primary">
+                <mat-label>Doctor's Name</mat-label>
+                <input matInput class="fullwidth">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Doctor's Contact Number</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Vehicle Number</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Driver's Number</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Zones</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+        </div>
+
+        <div>
+            <button mat-fab (click)="startLocationShare()" > 
+                <mat-icon >play_arrow</mat-icon> 
+            </button>
+            
+            <button mat-fab (click)="stopLocationShare()" > 
+                <mat-icon>stop</mat-icon>
+            </button>
+        </div>
+        <br>
+        <br>
+        <div *ngIf = "dispalyFluClinicLocation">
+            Flu Clinic Location
+            <table>
+                <tr>
+                    <td>Latitude: </td> <td>{{latitude}}</td>
+                </tr>
+                <tr>
+                    <td>Longitude: </td> <td>{{longitude}}</td>
+                </tr>
+                <tr>
+                    <td>Accracy: </td> <td>{{accuracy}} metres</td>
+                </tr>
+            </table>
+        </div>
+
+</div>
+
+

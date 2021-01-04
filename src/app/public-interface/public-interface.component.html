@@ -1,0 +1,64 @@
+ 
+ <mat-drawer-container class="example-container">
+  <mat-drawer #drawer  class="drawer-info" mode="over" [opened]="showSideNav">
+    <mat-toolbar class="header">
+      <mat-toolbar style=" display:flex;justify-content: flex-start;">
+         <mat-icon [ngStyle]="{'color':'rgb(165,41,36)'}">view_carousel</mat-icon><span [ngStyle]="{'color':'rgb(165,41,36)'}">Mobile Flu Clinic Details</span>
+     </mat-toolbar>
+    </mat-toolbar>
+  <h2 style="color:rgb(165,41,36) ;">Ministry of Health, Royal Government of Bhutan</h2>
+  <img src="http://www.moh.gov.bt/wp-content/uploads/ict-files/2020/07/logo.png" alt="" style="max-width: 100%;">
+    
+
+    <table>
+      <tr>
+        <td class="tname">Doctor On Duty: </td> <td>{{doctorName}}</td>
+      </tr>
+      <tr>
+        <td class="tname">Contact Doctor: </td> <td>{{doctorContact}}</td>
+      </tr>
+      <tr>
+        <td class="tname">Diver: </td> <td>{{driverName}}</td>
+      </tr>
+      <tr>
+        <td class="tname">Driver Contact: </td> <td> {{driverContact}}</td>
+      </tr>
+      <tr>
+        <td class="tname">Duty Area: </td> <td> Taba, Upper Lower, Dechencholing</td>
+      </tr>
+
+    </table>
+
+  </mat-drawer>
+  <mat-drawer-content>
+     <div class="map-container">
+      <div class="map-frame">
+        <div id="map">
+        
+          
+          <div class="leaflet-bottom leaflet-right">
+              <button style="
+              width: 42px;
+              border-radius: 23px;
+              height: 42px;
+              background: white;
+              cursor: pointer;
+              margin-bottom: 20px;
+              border: none;" value="Cancel" class=" span3 leaflet-control" (click)="getMyLocation()">
+                <mat-icon style="color: black;">location_searching</mat-icon>
+              </button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+
+  </mat-drawer-content>
+  
+</mat-drawer-container>
+
+
+
+
+
+ 
